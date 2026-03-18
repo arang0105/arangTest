@@ -1,0 +1,153 @@
+/* ── 테마 변수 ── */
+:root {
+  --bg: #f5f5f7;
+  --card-bg: #ffffff;
+  --card-thumb-bg: #f0f0f5;
+  --navbar-bg: rgba(255,255,255,0.9);
+  --text-primary: #1a1a2e;
+  --text-secondary: #555577;
+  --text-muted: #aaaacc;
+  --accent: #5566ff;
+  --accent-light: #eef0ff;
+  --border: #e0e0ee;
+  --shadow: rgba(85, 102, 255, 0.15);
+  --footer-bg: #1a1a2e;
+  --footer-text: #aaaacc;
+  --ad-bg: #f8f8fc;
+}
+
+body.dark {
+  --bg: #0d0d1a;
+  --card-bg: #1a1a2e;
+  --card-thumb-bg: #12122a;
+  --navbar-bg: rgba(13,13,26,0.95);
+  --text-primary: #e8e8f8;
+  --text-secondary: #9999bb;
+  --text-muted: #55557a;
+  --accent: #7788ff;
+  --accent-light: #1a1a3a;
+  --border: #2a2a42;
+  --shadow: rgba(119, 136, 255, 0.2);
+  --footer-bg: #080814;
+  --footer-text: #55557a;
+  --ad-bg: #12122a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Apple SD Gothic Neo, sans-serif;
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── 네비게이션 ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.nav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  flex: 1;
+}
+
+.nav-links a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: var(--accent-light);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover { transform: rotate(20deg); }
+
+/* ── 푸터 ── */
+.footer {
+  margin-top: auto;
+  background: var(--footer-bg);
+  padding: 32px 20px;
+  transition: background 0.3s;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+.footer-copy {
+  color: var(--footer-text);
+  font-size: 0.82rem;
+}

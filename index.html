@@ -3,92 +3,323 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arang Projects</title>
+  <meta name="description" content="무료 온라인 게임과 생산성 도구를 제공하는 Arang Games. 두더지 잡기, 할일 관리 앱 등 다양한 웹 게임을 즐겨보세요." />
+  <meta name="keywords" content="무료게임, 온라인게임, 두더지잡기, 브라우저게임, 할일관리, 웹게임" />
+  <meta name="author" content="Arang Games" />
+  <meta property="og:title" content="Arang Games - 무료 온라인 게임" />
+  <meta property="og:description" content="누구나 즐길 수 있는 무료 웹 게임과 생산성 도구 모음" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arangtestgit.pages.dev/" />
+  <title>Arang Games - 무료 온라인 게임 & 생산성 도구</title>
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
 
-    body {
-      min-height: 100vh;
-      background: #0f0f1a;
+    /* 광고 배너 영역 */
+    .ad-banner {
+      width: 100%;
+      max-width: 728px;
+      margin: 0 auto 48px;
+      background: var(--ad-bg);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      height: 90px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
+      color: var(--text-muted);
+      font-size: 0.8rem;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
+    /* 게임 카드 섹션 */
+    .section { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
     }
-
-    p.sub {
-      color: #888;
-      margin-bottom: 48px;
-      font-size: 1rem;
-    }
+    .section-title span { color: var(--accent); }
 
     .cards {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
     }
 
     .card {
-      background: #1e1e30;
-      border: 1px solid #2e2e48;
-      border-radius: 20px;
-      padding: 36px 40px;
-      text-align: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
       text-decoration: none;
-      color: #fff;
-      width: 220px;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #5566ff;
-      box-shadow: 0 12px 40px rgba(85, 102, 255, 0.25);
-    }
-
-    .card-icon {
-      font-size: 3.5rem;
-      margin-bottom: 16px;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
       display: block;
     }
-
-    .card h2 {
-      font-size: 1.1rem;
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 32px var(--shadow);
+    }
+    .card-thumb {
+      background: var(--card-thumb-bg);
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .card-body { padding: 20px; }
+    .card-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 50px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
       margin-bottom: 8px;
     }
+    .card-body h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .card-body p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
 
-    .card p {
-      font-size: 0.82rem;
-      color: #888;
+    /* 콘텐츠 섹션 */
+    .content-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 32px;
+    }
+    .content-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .content-box h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .content-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .content-box ul li {
+      display: flex;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
       line-height: 1.5;
+    }
+    .content-box ul li .icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    /* 사이드 광고 */
+    .ad-side {
+      background: var(--ad-bg);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* 팁 섹션 */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 0;
+    }
+    .tip-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .tip-card .tip-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .tip-card h4 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 6px; }
+    .tip-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2rem; }
+      .content-section { grid-template-columns: 1fr; }
+      .ad-side { min-height: 100px; }
     }
   </style>
 </head>
 <body>
-  <h1>🗂 Arang Projects</h1>
-  <p class="sub">작업한 프로젝트 목록입니다.</p>
 
-  <div class="cards">
-    <a class="card" href="./whack-a-mole/">
-      <span class="card-icon">🔨</span>
-      <h2>두더지 잡기</h2>
-      <p>망치로 두더지를 잡는 게임. 60초 도전!</p>
-    </a>
+  <!-- 네비게이션 -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">🎮 Arang Games</a>
+      <ul class="nav-links">
+        <li><a href="/" class="active">홈</a></li>
+        <li><a href="/whack-a-mole/">두더지 게임</a></li>
+        <li><a href="/todo.html">Todo 앱</a></li>
+        <li><a href="/about.html">소개</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </nav>
 
-    <a class="card" href="./todo.html">
-      <span class="card-icon">✅</span>
-      <h2>Todo App</h2>
-      <p>할 일을 관리하는 심플한 투두 앱</p>
-    </a>
+  <!-- 히어로 -->
+  <section class="hero">
+    <span class="hero-badge">✨ 무료 웹 게임 & 도구</span>
+    <h1>재미있는 게임을 <span>지금 바로</span> 즐기세요</h1>
+    <p>설치 없이 브라우저에서 바로 즐길 수 있는 무료 온라인 게임과 생산성 도구를 제공합니다. 언제 어디서나 빠르게 즐겨보세요.</p>
+  </section>
+
+  <!-- 상단 광고 배너 -->
+  <div style="max-width:1000px;margin:0 auto;padding:0 20px 32px;">
+    <div class="ad-banner">광고 영역 (728×90)</div>
   </div>
+
+  <!-- 게임 목록 -->
+  <section class="section">
+    <h2 class="section-title">🕹 <span>인기</span> 게임</h2>
+    <div class="cards">
+      <a class="card" href="/whack-a-mole/">
+        <div class="card-thumb">🔨</div>
+        <div class="card-body">
+          <span class="card-tag">액션</span>
+          <h2>두더지 잡기</h2>
+          <p>60초 안에 올라오는 두더지를 망치로 최대한 많이 잡아보세요! 시간이 갈수록 두더지가 빨라집니다.</p>
+        </div>
+      </a>
+      <a class="card" href="/todo.html">
+        <div class="card-thumb">✅</div>
+        <div class="card-body">
+          <span class="card-tag">생산성</span>
+          <h2>Todo 앱</h2>
+          <p>할 일을 간편하게 관리하세요. 추가, 완료, 삭제 기능을 갖춘 심플한 할일 관리 도구입니다.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 본문 콘텐츠 + 사이드 광고 -->
+  <div class="content-section">
+    <div>
+      <div class="content-box" style="margin-bottom:20px;">
+        <h3>🎮 두더지 잡기 게임 공략</h3>
+        <ul>
+          <li><span class="icon">👀</span><span>화면 전체를 넓게 바라보며 올라오는 두더지를 미리 파악하세요. 한 곳만 집중하면 다른 구멍을 놓칩니다.</span></li>
+          <li><span class="icon">⚡</span><span>게임 초반(0~20초)은 두더지 속도가 느리므로 실수 없이 안정적으로 점수를 쌓는 것이 중요합니다.</span></li>
+          <li><span class="icon">🎯</span><span>두더지가 올라오는 순간 바로 클릭하세요. 너무 늦으면 내려가버립니다.</span></li>
+          <li><span class="icon">🏆</span><span>고수들의 평균 점수는 30점 이상입니다. 25점을 넘기면 중급자 수준입니다.</span></li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h3>✅ Todo 앱 활용 팁</h3>
+        <ul>
+          <li><span class="icon">📝</span><span>매일 아침 오늘 할 일을 3~5개만 등록하세요. 너무 많으면 집중력이 분산됩니다.</span></li>
+          <li><span class="icon">✔️</span><span>완료한 항목은 바로 체크해 성취감을 높이고 남은 작업에 집중하세요.</span></li>
+          <li><span class="icon">🔄</span><span>완료하지 못한 작업은 다음 날로 미루지 말고 우선순위를 다시 정해보세요.</span></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 사이드 광고 -->
+    <div>
+      <div class="ad-side">광고 영역 (300×250)</div>
+    </div>
+  </div>
+
+  <!-- 특징 섹션 -->
+  <section class="section">
+    <h2 class="section-title">🌟 <span>Arang Games</span> 특징</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🚀</div>
+        <h4>설치 불필요</h4>
+        <p>앱 설치 없이 브라우저만으로 즉시 플레이할 수 있습니다.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📱</div>
+        <h4>모바일 지원</h4>
+        <p>PC와 스마트폰 모두에서 최적화된 화면으로 즐기세요.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🌙</div>
+        <h4>다크 모드</h4>
+        <p>눈에 편한 다크 모드와 라이트 모드를 지원합니다.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🔒</div>
+        <h4>개인정보 보호</h4>
+        <p>별도 회원가입 없이 이용 가능하며 개인정보를 수집하지 않습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 광고 배너 -->
+  <div style="max-width:1000px;margin:0 auto;padding:0 20px 60px;">
+    <div class="ad-banner">광고 영역 (728×90)</div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/about.html">소개</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="mailto:sangdori.mm@gmail.com">문의하기</a>
+      </div>
+      <p class="footer-copy">© 2026 Arang Games. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
 </body>
 </html>

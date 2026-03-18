@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arang Games 소개 - 누구나 즐길 수 있는 무료 웹 게임과 생산성 도구를 만드는 공간입니다." />
+  <title>소개 - Arang Games</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      flex: 1;
+    }
+    .about-hero {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .about-hero .emoji { font-size: 4rem; margin-bottom: 16px; }
+    .about-hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+    .about-hero p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .info-card .ic-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .info-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .info-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .contact-box {
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .contact-box h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .contact-box p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .contact-box a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 32px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .contact-box a:hover { opacity: 0.85; }
+    @media (max-width: 500px) {
+      .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">🎮 Arang Games</a>
+      <ul class="nav-links">
+        <li><a href="/">홈</a></li>
+        <li><a href="/whack-a-mole/">두더지 게임</a></li>
+        <li><a href="/todo.html">Todo 앱</a></li>
+        <li><a href="/about.html" class="active">소개</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle"><span id="themeIcon">🌙</span></button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="about-hero">
+      <div class="emoji">🎮</div>
+      <h1>Arang Games 소개</h1>
+      <p>설치 없이 브라우저에서 바로 즐길 수 있는 무료 웹 게임과 생산성 도구를 만드는 공간입니다. 누구나 쉽게 접근할 수 있는 가벼운 콘텐츠를 추구합니다.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ic-icon">🚀</div>
+        <h3>빠른 접근성</h3>
+        <p>로그인, 설치 없이 링크 하나로 바로 시작할 수 있습니다. 누구나, 어디서나 즐길 수 있는 게임을 만듭니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">🎯</div>
+        <h3>심플한 재미</h3>
+        <p>복잡한 튜토리얼 없이 바로 이해하고 즐길 수 있는 직관적인 게임을 지향합니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">🌙</div>
+        <h3>다크 모드 지원</h3>
+        <p>모든 페이지에서 다크 모드와 라이트 모드를 지원하며 사용자 설정이 저장됩니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">📱</div>
+        <h3>모바일 최적화</h3>
+        <p>PC는 물론 스마트폰과 태블릿에서도 불편함 없이 즐길 수 있도록 최적화되어 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <h2>✉️ 문의하기</h2>
+      <p>게임 관련 제안, 버그 제보, 협업 문의 등 무엇이든 편하게 연락주세요.</p>
+      <a href="mailto:sangdori.mm@gmail.com">sangdori.mm@gmail.com</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/about.html">소개</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="mailto:sangdori.mm@gmail.com">문의하기</a>
+      </div>
+      <p class="footer-copy">© 2026 Arang Games. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

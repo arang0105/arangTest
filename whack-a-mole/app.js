@@ -180,25 +180,30 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// ── 테마 토글 ───────────────────────────────────────────
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = themeToggle.querySelector('.theme-icon');
-const themeLabel = themeToggle.querySelector('.theme-label');
+// ── 게임 내 테마 토글 버튼 (shared.js와 동기화) ──────────
+const themeToggleGame = document.getElementById('themeToggleGame');
+const themeIconGame = document.getElementById('themeIconGame');
+const themeLabelText = document.querySelector('.theme-label-text');
 
-function applyTheme(isDark) {
-  document.body.classList.toggle('dark', isDark);
-  themeIcon.textContent = isDark ? '☀️' : '🌙';
-  themeLabel.textContent = isDark ? '라이트 모드' : '다크 모드';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+function syncGameThemeBtn() {
+  const isDark = document.body.classList.contains('dark');
+  if (themeIconGame) themeIconGame.textContent = isDark ? '☀️' : '🌙';
+  if (themeLabelText) themeLabelText.textContent = isDark ? '라이트 모드' : '다크 모드';
 }
 
-// 저장된 테마 불러오기
-const savedTheme = localStorage.getItem('theme');
-applyTheme(savedTheme === 'dark');
+syncGameThemeBtn();
 
-themeToggle.addEventListener('click', () => {
-  applyTheme(!document.body.classList.contains('dark'));
-});
+if (themeToggleGame) {
+  themeToggleGame.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark');
+    document.body.classList.toggle('dark', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    // navbar 버튼도 동기화
+    const navIcon = document.getElementById('themeIcon');
+    if (navIcon) navIcon.textContent = isDark ? '☀️' : '🌙';
+    syncGameThemeBtn();
+  });
+}
 
 // ── 이벤트 ─────────────────────────────────────────────
 document.getElementById('startBtn').addEventListener('click', startGame);

@@ -1,7 +1,123 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ── 게임 레이아웃 ── */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.game-ad-top,
+.game-ad-bottom {
+  max-width: 760px;
+  margin: 12px auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.ad-label {
+  background: var(--ad-bg, #f8f8fc);
+  border: 1px dashed var(--border, #e0e0ee);
+  border-radius: 8px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted, #aaaacc);
+  font-size: 0.8rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.game-layout {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 20px 20px 0;
+  flex: 1;
+}
+
+.game-main { flex-shrink: 0; }
+
+.game-aside {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.ad-side-box {
+  background: var(--ad-bg, #f8f8fc);
+  border: 1px dashed var(--border, #e0e0ee);
+  border-radius: 12px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted, #aaaacc);
+  font-size: 0.8rem;
+  transition: background 0.3s;
+}
+
+.guide-box {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, #e0e0ee);
+  border-radius: 12px;
+  padding: 20px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.guide-box h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 12px;
+}
+
+.guide-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.guide-box li {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #555577);
+  line-height: 1.5;
+}
+
+.game-info-section {
+  max-width: 760px;
+  margin: 32px auto 0;
+  padding: 0 20px;
+}
+
+.game-info-inner {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, #e0e0ee);
+  border-radius: 14px;
+  padding: 24px 28px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.game-info-inner h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 10px;
+}
+
+.game-info-inner p {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #555577);
+  line-height: 1.8;
+}
+
+@media (max-width: 760px) {
+  .game-layout { flex-direction: column; align-items: center; }
+  .game-aside { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .ad-side-box { flex: 1; min-width: 200px; height: 120px; }
+  .guide-box { flex: 1; min-width: 200px; }
 }
 
 /* ── 테마 변수 ── */
