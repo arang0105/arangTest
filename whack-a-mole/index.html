@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>두더지 잡기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 시작 화면 -->
+  <div class="overlay" id="startScreen">
+    <div class="overlay-box">
+      <div class="title-mole">🐭</div>
+      <h1>두더지 잡기!</h1>
+      <p>60초 안에 두더지를 최대한 많이 잡아보세요!</p>
+      <button id="startBtn">게임 시작</button>
+    </div>
+  </div>
+
+  <!-- 종료 화면 -->
+  <div class="overlay hidden" id="endScreen">
+    <div class="overlay-box">
+      <div class="title-mole">🥳</div>
+      <h1>게임 종료!</h1>
+      <p>최종 점수: <span id="finalScore">0</span>점</p>
+      <button id="restartBtn">다시 하기</button>
+    </div>
+  </div>
+
+  <!-- 게임 화면 -->
+  <div class="game-container">
+    <header>
+      <div class="stat">
+        <span class="label">⏱ 시간</span>
+        <span class="value" id="timer">60</span>
+      </div>
+      <h1 class="game-title">🐭 두더지 잡기</h1>
+      <div class="stat">
+        <span class="label">🏆 점수</span>
+        <span class="value" id="score">0</span>
+      </div>
+    </header>
+    <div class="theme-bar">
+      <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-label">다크 모드</span>
+      </button>
+    </div>
+
+    <div class="grid" id="grid">
+      <!-- 9개의 구멍은 JS에서 생성 -->
+    </div>
+
+    <div class="hit-message" id="hitMessage">+1</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
