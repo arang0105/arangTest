@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  background: #1e1212;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px;
+  min-height: 100vh;
+}
+
+/* ── 배경 데코 원 ── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+body::before {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(255, 214, 0, 0.18), transparent 70%);
+  top: -80px;
+  left: -80px;
+}
+body::after {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 130, 255, 0.18), transparent 70%);
+  bottom: -60px;
+  right: -60px;
+}
+
+/* ── 카드 컨테이너 ── */
+.container {
+  position: relative;
+  z-index: 1;
+  background: #2a1a1a;
+  border-radius: 24px;
+  border: 2px solid #3d2424;
+  box-shadow:
+    0 0 0 4px rgba(255, 214, 0, 0.08),
+    0 24px 60px rgba(0, 0, 0, 0.5);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 500px;
+  height: fit-content;
+}
+
+/* ── 헤더 ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.header-icon {
+  width: 48px;
+  height: 48px;
+  background: #ffd600;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(255, 214, 0, 0.4);
+  flex-shrink: 0;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+h1 span {
+  color: #ffd600;
+}
+
+.stats {
+  font-size: 13px;
+  color: #7a5a5a;
+  margin-bottom: 28px;
+  margin-left: 62px;
+  font-weight: 600;
+}
+
+/* ── 진행 바 ── */
+.progress-wrap {
+  background: #3d2424;
+  border-radius: 99px;
+  height: 8px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd600, #c982ff);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* ── 입력 영역 ── */
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 12px 16px;
+  background: #3d2424;
+  border: 2px solid #5a3333;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-row input::placeholder {
+  color: #7a5a5a;
+}
+
+.input-row input:focus {
+  border-color: #ffd600;
+  box-shadow: 0 0 0 3px rgba(255, 214, 0, 0.15);
+}
+
+.input-row button {
+  padding: 12px 20px;
+  background: #ffd600;
+  color: #1e1212;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 14px rgba(255, 214, 0, 0.35);
+}
+
+.input-row button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 214, 0, 0.5);
+}
+
+.input-row button:active {
+  transform: translateY(0);
+}
+
+/* ── 필터 탭 ── */
+.filter-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 6px 16px;
+  border: 2px solid #5a3333;
+  border-radius: 99px;
+  background: none;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  color: #7a5a5a;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: #ffd600;
+  color: #ffd600;
+}
+
+.filter-btn.active {
+  background: #ffd600;
+  border-color: #ffd600;
+  color: #1e1212;
+}
+
+/* ── Todo 목록 ── */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #3d2424;
+  border: 2px solid #5a3333;
+  border-radius: 14px;
+  animation: fadeIn 0.25s ease;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  border-color: #7a4444;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+li.done {
+  background: #2e1e1e;
+  border-color: #3d2424;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 커스텀 체크박스 */
+li input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid #7a5a5a;
+  border-radius: 7px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+li input[type="checkbox"]:checked {
+  background: #ffd600;
+  border-color: #ffd600;
+}
+
+li input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: 2.5px solid #1e1212;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+li span {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f0d0d0;
+  transition: all 0.2s;
+}
+
+li.done span {
+  text-decoration: line-through;
+  color: #5a3a3a;
+}
+
+/* 우선순위 태그 */
+li .tag {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: rgba(201, 130, 255, 0.2);
+  color: #c982ff;
+  flex-shrink: 0;
+}
+
+li .delete-btn {
+  background: none;
+  border: none;
+  color: #5a3a3a;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+}
+
+li .delete-btn:hover {
+  color: #ff5c5c;
+  transform: scale(1.2);
+}
+
+/* ── 빈 상태 ── */
+.empty {
+  text-align: center;
+  color: #5a3a3a;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 36px 0;
+}
+
+.empty-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ── 하단 버튼 ── */
+.clear-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: 2px solid #5a3333;
+  border-radius: 12px;
+  color: #7a5a5a;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-btn:hover {
+  border-color: #ff5c5c;
+  color: #ff5c5c;
+  background: rgba(255, 92, 92, 0.06);
+}
