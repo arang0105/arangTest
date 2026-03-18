@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arang Projects</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: #0f0f1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    p.sub {
+      color: #888;
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+
+    .cards {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: #1e1e30;
+      border: 1px solid #2e2e48;
+      border-radius: 20px;
+      padding: 36px 40px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      width: 220px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #5566ff;
+      box-shadow: 0 12px 40px rgba(85, 102, 255, 0.25);
+    }
+
+    .card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.82rem;
+      color: #888;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗂 Arang Projects</h1>
+  <p class="sub">작업한 프로젝트 목록입니다.</p>
+
+  <div class="cards">
+    <a class="card" href="./whack-a-mole/">
+      <span class="card-icon">🔨</span>
+      <h2>두더지 잡기</h2>
+      <p>망치로 두더지를 잡는 게임. 60초 도전!</p>
+    </a>
+
+    <a class="card" href="./todo.html">
+      <span class="card-icon">✅</span>
+      <h2>Todo App</h2>
+      <p>할 일을 관리하는 심플한 투두 앱</p>
+    </a>
+  </div>
+</body>
+</html>
